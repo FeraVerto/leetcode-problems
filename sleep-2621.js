@@ -1,13 +1,12 @@
 async function sleep(millis) {
     let promise = new Promise ((res, rej) => {
-        setTimeout(() => res, millis)
+        setTimeout(() => res(), millis)
     })
 
     return await promise
-    //return await setTimeout(() => {}, millis)
 }
 
 let t = Date.now();
-sleep(1000).then(() => {
+sleep(100).then(() => {
   console.log(Date.now() - t);
 });

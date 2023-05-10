@@ -1,8 +1,12 @@
 //https://leetcode.com/problems/allow-one-function-call/
 
 let once = function(fn) {
+    let call = false;
+    if(call) return 'returns undefined without calling fn'
+
+    console.log('fn', fn)
     return function(...args){
-        
+        console.log([...args])
     }
 };
 
