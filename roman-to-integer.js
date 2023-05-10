@@ -26,7 +26,6 @@ let romanToInt = function(s) {
         } else {
             sum += roman.get(arrayOfRoman[i])
         }
-        console.log('sum', sum);
 };
     return sum
 };
