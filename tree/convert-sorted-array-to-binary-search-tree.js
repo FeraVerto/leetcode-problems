@@ -11,9 +11,12 @@ let sortedArrayToBST = function(nums) {
 
     let middleElement = Math.floor(nums.length / 2);
 
-    let root = new TreeNode(nums[middleElement])
-    root.left = sortedArrayToBST(nums.slice(0, middleElement))
-    root.right = sortedArrayToBST(nums.slice(middleElement + 1))
+    let rootNode = new TreeNode(nums[middleElement])
+    rootNode.left = sortedArrayToBST(nums.slice(0, middleElement))
+    rootNode.right = sortedArrayToBST(nums.slice(middleElement + 1))
+
+    console.log(rootNode);
+    return rootNode
 };
 
 sortedArrayToBST([-10,-3,0,5,9])
