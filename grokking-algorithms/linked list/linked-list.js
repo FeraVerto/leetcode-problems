@@ -113,3 +113,63 @@ class LinkedList {
 
 module.exports = { LinkedList };
 
+class ListNode {
+    constructor(val, next) {
+        this.val = val;
+        this.next = (next === undefined ? null : next)
+    }
+}
+
+class LinkedList {
+    constructor() {
+        this.size = 0;
+        this.head = null;
+        this.tail = null;
+    }
+
+    append(value) {
+        let newNode = new ListNode(value);
+
+        if(!this.head || !this.tail) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+
+        this.tail.next = newNode;
+        this.tail = newNode; 
+        this.size++;
+
+        return this;
+    }
+
+    prepend(value) {
+         let newNode = new ListNode(value);
+
+         if(!this.head || !this.tail) {
+            this.head = newNode;
+            this.tail = newNode;
+        }
+
+        this.head.next = this.head;
+        this.head = newNode;
+        this.size++;
+
+        return this;
+    }
+
+    toArray () {
+        let arr = [];
+
+        let currentNode = this.head;
+        while(currentNode.next !== null){
+            arr.push(currentNode.val);
+            currentNode = currentNode.next;
+        }
+
+        return arr;
+    } 
+}
+
+let aaa = new LinkedList();
+aaa.append('a').append('b').prepend('c');
+console.log(aaa.toArray());

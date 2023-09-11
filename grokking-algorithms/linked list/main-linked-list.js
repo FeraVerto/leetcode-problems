@@ -140,5 +140,5 @@
     }
 
     let linkedList = new LinkedList();
-    let newList = linkedList.append('a').append('b').append('c').append('d').reverse().toArray();
+    let newList = linkedList.append('a').append('a').append('a').append('a').append('a').delete('a').toArray();
     console.log('newList', newList);
