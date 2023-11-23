@@ -142,3 +142,76 @@
     let linkedList = new LinkedList();
     let newList = linkedList.append('a').append('a').append('a').append('a').append('a').delete('a').toArray();
     console.log('newList', newList);
+
+
+class ListNode {
+    constructor(value, next = null) {
+        this.value = value;
+        this.next = next;
+    }
+}
+
+class LinkedList {
+    constructor() {
+        this.head = null;
+        this.tail = null;
+    }
+
+    toArray() {
+        let newArray = [];
+
+        let currentNode = this.head;
+
+        while(currentNode !== null) {
+            newArray.push(currentNode.value);
+
+            currentNode = currentNode.next;
+        }
+
+        return newArray;
+    }
+
+    append(value) {
+        let newNode = new ListNode(value);
+        if(!this.head) {
+            this.head = newNode;
+            this.tail = newNode;
+            return this;
+        }
+
+        this.tail.next = newNode;
+        this.tail = newNode;
+
+        return this;
+    }
+
+    delete(value) {
+        if(!this.head) return null;
+        let currentNode = this.head;
+
+        while(this.head.value === value) {
+            this.head = currentNode.next;
+        }
+
+
+        if(currentNode !== null) {
+            while(currentNode.next) {
+                if(currentNode.next.value === value) {
+                    currentNode.next = currentNode.next.next;
+                } else {
+                    currentNode = currentNode.next;
+                }
+            }
+        }
+
+        if(this.tail.value === value) {
+            this.tail = currentNode;
+        } 
+
+        return this;
+    }
+}
+
+let linkedList2 = new LinkedList();
+let newList2 = linkedList2.append('a').append('a').append('b').append('c').append('a').append('d').append('a').delete('a').toArray();
+console.log('newList2', newList2);
