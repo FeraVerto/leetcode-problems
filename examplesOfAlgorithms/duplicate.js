@@ -18,4 +18,4 @@ let containsDuplicate2 = function(nums) {
     }
     return false;
 }
-containsDuplicate2([1,2, 3, 3, 4]);
+containsDuplicate2([1,2, 3, 4]);
