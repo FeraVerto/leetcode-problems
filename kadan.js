@@ -12,6 +12,7 @@ let maxSubArray = function(nums) {
     return globalMax;
 };
 
+maxSubArray([1, 1, 1, 1, 10, -1, -2, -5, -4]);
 maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]);
 
 
